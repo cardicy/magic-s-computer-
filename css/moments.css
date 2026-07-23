@@ -1,0 +1,512 @@
+/*==================================
+        朋友圈窗口
+===================================*/
+
+.moments-window{
+
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    width:700px;
+    height:620px;
+
+    background:white;
+
+    border-radius:14px;
+
+    overflow:hidden;
+
+    box-shadow:0 20px 50px rgba(0,0,0,.25);
+
+    display:flex;
+
+    flex-direction:column;
+
+    z-index:9999;
+
+}
+
+.moments-window.hidden{
+
+    display:none;
+
+}
+
+/*========================
+        顶部
+========================*/
+
+.moments-topbar{
+
+    height:42px;
+
+    background:#f5f5f5;
+
+    border-bottom:1px solid #ececec;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:0 14px;
+
+}
+
+.moments-left{
+
+    display:flex;
+
+    gap:18px;
+
+}
+
+.moments-icon{
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    color:#666;
+
+}
+
+.moments-title{
+
+    font-size:16px;
+
+    font-weight:600;
+
+}
+
+.moments-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+.moments-time{
+
+    font-size:13px;
+
+    color:#777;
+
+}
+
+#moments-close{
+
+    border:none;
+
+    background:none;
+
+    cursor:pointer;
+
+    font-size:20px;
+
+}
+
+#moments-close:hover{
+
+    color:red;
+
+}
+
+/*========================
+        内容
+========================*/
+
+.moments-body{
+
+    flex:1;
+
+    overflow-y:auto;
+
+    background:white;
+
+    padding:28px 40px;
+
+}
+
+/*========================
+        一条朋友圈
+========================*/
+
+.moment-item{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    margin-bottom:32px;
+
+}
+
+/*========================
+        头像
+========================*/
+
+.moment-avatar{
+
+    width:48px;
+
+    height:48px;
+
+    border-radius:8px;
+
+    object-fit:cover;
+
+    margin-right:12px;
+
+    flex-shrink: 0;
+
+}
+
+/*========================
+        内容
+========================*/
+
+.moment-content{
+
+    flex:1;
+
+    display: flex;
+
+flex-direction: column;
+
+}
+
+
+
+
+.moment-text{
+
+    font-size:15px;
+
+    color:#333;
+
+    line-height:1.45;
+
+}
+
+/*========================
+        蓝色链接
+========================*/
+
+.moment-link{
+
+    color:#576b95;
+
+    cursor:pointer;
+
+}
+
+/*========================
+        图片
+========================*/
+
+.moment-image{
+
+    margin-top:8px;
+
+    width:240px;
+
+    border-radius:10px;
+
+    display:block;
+
+}
+
+/*========================
+        底部
+========================*/
+
+.moment-footer{
+
+    margin-top:8px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    color:#999;
+
+    font-size:13px;
+
+}
+
+.moment-more{
+
+    cursor:pointer;
+
+    font-size:18px;
+
+}
+
+/*========================
+        公众号
+========================*/
+
+.official-tag{
+
+    color:#576b95;
+
+    font-size:14px;
+
+}
+
+.official-card{
+
+    width:400px;
+
+    display:flex;
+
+    align-items:center;
+
+    margin-top:10px;
+
+    background:#f7f7f7;
+
+    border-radius:10px;
+
+    overflow:hidden;
+
+    border:1px solid #ececec;
+
+}
+
+.official-image{
+
+    width:90px;
+
+    height:90px;
+
+    object-fit:cover;
+
+}
+
+.official-title{
+
+    flex:1;
+
+    padding:14px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    line-height:1.4;
+
+}
+/*==========================
+      私人朋友圈
+==========================*/
+
+.moment-item{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    padding:18px 20px;
+
+    border-bottom:1px solid #f3f3f3;
+
+}
+
+.moment-avatar{
+
+    width:46px;
+
+    height:46px;
+
+    border-radius:8px;
+
+    object-fit:cover;
+
+    margin-right:15px;
+
+    flex-shrink:0;
+
+}
+
+.moment-main{
+
+    flex:1;
+
+    display:flex;
+    flex-direction:column;
+
+    gap:2px;
+
+}
+
+.moment-name{
+
+    color:#576b95;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    margin:0 0 3px 0;
+
+    padding:0;
+
+    line-height:22px;
+
+}
+
+.moment-text{
+
+    margin:0;
+
+    padding:0;
+
+    line-height:1.5;
+
+    margin-bottom:4px;
+
+}
+
+.moment-image{
+
+    width:220px;
+
+    border-radius:10px;
+
+    margin-top:4px;   /* 原来12改成4 */
+
+    display:block;
+
+}
+
+.moment-meta{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin-top:10px;
+
+}
+
+.moment-time{
+
+    font-size:13px;
+
+    color:#999;
+
+}
+
+.moment-private{
+
+    font-size:13px;
+
+    color:#999;
+
+}
+
+.moment-like{
+
+    margin-top:10px;
+
+    padding:8px 12px;
+
+    background:#f6f6f6;
+
+    border-radius:8px;
+
+    color:#576b95;
+
+    font-size:14px;
+
+}
+
+.moment-comment{
+
+    margin-top:10px;
+
+    background:#f6f6f6;
+
+    border-radius:8px;
+
+    padding:10px 12px;
+
+}
+
+.comment-item{
+
+    font-size:14px;
+
+    color:#333;
+
+    line-height:1.7;
+
+}
+
+.moment-meta{
+
+    display:flex;
+
+    align-items:center;
+
+    margin-top:4px;
+
+    width:100%;
+
+}
+
+.moment-main .moment-name{
+
+    color:#576b95 !important;
+
+    font-size:16px;
+
+    font-weight:600;
+
+}
+.comment-name{
+    color:#576b95;
+    font-weight:600;
+}
+
+.comment-reply{
+    color:#333;
+    font-weight:400;
+}
+
+.moment-time{
+    color:#999;
+    font-size:13px;
+    margin-right:12px;
+}
+
+.moment-private{
+    color:#999;
+    font-size:13px;
+}
+
+.moment-more{
+
+    margin-left:auto;   /* 推到最右 */
+
+    font-size:22px;
+
+    color:#999;
+
+    cursor:pointer;
+
+}

@@ -1,0 +1,755 @@
+/* ===========================
+      微信窗口
+=========================== */
+
+.hidden{
+    display: none;
+}
+
+.wechat-window{
+
+    position:absolute;
+
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+
+    width:1000px;
+    height:650px;
+
+    background:white;
+    border-radius:15px;
+
+    overflow:hidden;
+
+    display:flex;
+
+    box-shadow:0 20px 50px rgba(0,0,0,.3);
+
+    box-sizing:border-box;
+
+}
+
+/* 左边 */
+
+.wechat-sidebar{
+
+    width:70px;
+
+    background:#2e2e2e;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    padding-top:55px;
+
+    flex-shrink:0;
+
+}
+
+.sidebar-icon{
+
+    width:46px;
+
+    height:46px;
+
+    margin-bottom:18px;
+
+    border-radius:10px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:22px;
+
+}
+
+.sidebar-icon.active{
+
+    background:#4caf50;
+
+}
+
+/* 联系人 */
+
+.chat-list{
+
+    width:250px;
+
+    background:#fff;
+
+    border-right:1px solid #e5e5e5;
+
+    overflow-y:auto;
+
+    flex-shrink:0;
+
+    padding-top:25px;   /* 新增 */
+}
+
+.chat-item{
+
+    height:65px;
+
+    display:flex;
+
+    align-items:center;
+
+    padding-left:20px;
+
+    cursor:pointer;
+
+    border-bottom:1px solid #e5e5e5;
+
+    padding: 12px 15px;
+
+}
+
+.chat-item:hover{
+
+    background:#ededed;
+
+}
+
+.chat-item.active{
+
+    background:white;
+
+}
+
+.chat-name{
+
+    font-size:15px;
+
+}
+
+/* 聊天 */
+
+.chat-window{
+
+    flex:1;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:white;
+
+}
+
+.chat-window h2{
+
+    margin-bottom:20px;
+
+}
+
+.wechat-window.hidden{
+    display: none;
+}
+/*==============================
+        聊天区域
+==============================*/
+
+.chat-content{
+
+    position:absolute;
+
+    left:320px;      /* 左侧70+聊天列表250 */
+
+    top:30px;
+
+    right:0;
+
+    bottom:0;
+
+    background:white;
+
+    display:none;
+
+    flex-direction:column;
+
+}
+
+.chat-content.active{
+    display: flex;
+}
+
+.chat-header{
+    height:60px;
+
+    border-bottom:1px solid #ededed;
+
+    display:flex;
+
+    align-items:center;
+
+    padding:0 25px;
+
+    font-size:18px;
+
+    font-weight:bold;
+}
+
+.chat-messages{
+    flex:1;
+
+    padding:20px 30px;
+
+    overflow-y:auto;
+}
+
+.chat-time{
+
+    text-align:center;
+
+    color:#999;
+
+    font-size:13px;
+
+    margin-bottom:25px;
+
+}
+
+.my-message{
+    display:flex;
+    justify-content:flex-end;
+    align-items:flex-start;
+    margin-bottom:16px;
+}
+
+.message-bubble{
+    background:#95ec69;
+    padding:10px 14px;
+    border-radius:10px;
+    display:inline-block;
+    width:auto;
+    max-width:260px;
+
+    white-space:normal;
+    word-break:break-word;
+
+    font-size:15px;
+    line-height:1.5;
+
+    box-shadow:0 2px 6px rgba(0,0,0,.08);
+    margin-right:8px;
+}
+
+.chat-avatar{
+
+    width: 38px;
+
+    height:38px;
+
+    border-radius:8px;
+
+    margin-left:4px;
+
+    object-fit:cover;
+
+}
+.file-message{
+
+    background:white;
+
+    border-radius:10px;
+
+    padding:12px 16px;
+
+    width:320px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+
+}
+
+.file-info{
+
+    flex:1;
+
+}
+
+.file-name{
+
+    font-size:15px;
+
+    font-weight:bold;
+
+    color:#333;
+
+    margin-bottom:6px;
+
+}
+
+.file-size{
+
+    font-size:12px;
+
+    color:#999;
+
+}
+
+.file-icon{
+
+    width:55px;
+
+    height:55px;
+
+    border-radius:8px;
+
+    background:#d93025;
+
+    color:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-weight:bold;
+
+    font-size:18px;
+
+}
+.chat-info{
+    display:flex;
+    flex-direction:column;
+}
+
+.chat-name{
+    font-size:15px;
+    font-weight:600;
+    color:#333;
+}
+
+.chat-preview{
+    margin-top:4px;
+    font-size:12px;
+    color:#999;
+}
+/* 对方消息 */
+
+.other-message{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:12px;
+
+    margin-bottom:16px;
+
+}
+
+.other-avatar{
+
+    width:38px;
+
+    height:38px;
+
+    border-radius:8px;
+
+    object-fit:cover;
+
+    margin-right:10px;
+
+    flex-shrink:0;
+
+    margin-right:12px;
+
+}
+
+
+
+.other-bubble{
+
+    background:white;
+
+    padding:10px 14px;
+
+    border-radius:10px;
+
+    max-width:320px;
+
+    font-size:15px;
+
+    line-height:1.45;
+
+    box-shadow:0 2px 6px rgba(0,0,0,.08);
+
+}
+.chat-content.hidden{
+    display: none !important;
+}
+.chat-content.active{
+
+    display:flex;
+
+}
+.window-topbar{
+
+    position:absolute;
+
+    top:0;
+    left:0;
+    right:0;
+
+    height: 28px;
+
+    background:#f6f6f6;
+
+    border-bottom:1px solid #ddd;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 12px;
+
+    box-sizing:border-box;
+
+    z-index:999;
+
+}
+
+.window-title{
+
+    font-size:13px;
+
+    color:#666;
+
+}
+
+.window-close{
+
+    width:28px;
+
+    height: 28px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    cursor:pointer;
+
+}
+
+.window-close:hover{
+
+    background:#e81123;
+
+    color:white;
+
+}
+.sidebar-bottom{
+    margin-top:auto;
+    margin-bottom:18px;
+
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+.user-menu{
+
+    position:absolute;
+
+    left:70px;
+    bottom:20px;
+
+    width:150px;
+
+    background:white;
+
+    border-radius:10px;
+
+    box-shadow:0 4px 12px rgba(0,0,0,.18);
+
+    overflow:hidden;
+
+    z-index:999;
+
+}
+
+.hidden{
+
+    display:none;
+
+}
+
+.menu-item{
+
+    padding:12px 16px;
+
+    font-size:14px;
+
+    cursor:pointer;
+
+}
+
+.menu-item:hover{
+
+    background:#f5f5f5;
+
+}
+/*=========================
+    微信小程序
+=========================*/
+
+.mini-card{
+
+    width:250px;
+
+    background:white;
+
+    border-radius:12px;
+
+    overflow:hidden;
+
+    border:1px solid #ececec;
+
+}
+
+.mini-account{
+
+    display:flex;
+
+    align-items:center;
+
+    padding:10px 12px 5px;
+
+}
+
+.mini-account-avatar{
+
+    width:24px;
+
+    height:24px;
+
+    border-radius:50%;
+
+    margin-right:8px;
+
+}
+
+.mini-account-name{
+
+    font-size:12px;
+
+    color:#888;
+
+}
+.mini-title{
+
+    padding:4px 14px 12px;
+
+    font-size:18px;
+
+    font-weight:600;
+
+}
+
+.mini-desc{
+
+    padding:8px 12px 10px;
+
+    font-size:13px;
+
+    color:#666;
+
+}
+
+.mini-image{
+
+    width:100%;
+
+    height:150px;
+
+    object-fit:cover;
+
+    display:block;
+
+}
+
+
+.mini-program{
+
+    width:260px;
+
+    background:#fff;
+
+    border:1px solid #e6e6e6;
+
+    border-radius:12px;
+
+    overflow:hidden;
+
+    box-shadow:0 2px 6px rgba(0,0,0,.06);
+
+}
+.mini-header{
+
+    padding:12px 14px 0;
+
+    font-size:13px;
+
+    color:#888;
+
+}
+.mini-footer{
+
+    height:40px;
+
+    border-top:1px solid #eee;
+
+    display:flex;
+
+    align-items:center;
+
+    padding-left:14px;
+
+    color:#999;
+
+    font-size:13px;
+
+}
+.other-message .message-bubble{
+
+    background:#fff;
+
+    color:#333;
+
+    margin-left:8px;
+
+    margin-right:0;
+
+}
+/*==========================
+      微信转账
+==========================*/
+
+.transfer-card{
+
+    width:240px;
+
+    background:#f1be71;
+
+    border-radius:10px;
+
+    overflow:hidden;
+
+    box-shadow:0 2px 6px rgba(0,0,0,.08);
+
+}
+
+.transfer-top{
+
+    padding:14px;
+
+    color:white;
+
+}
+
+.transfer-money{
+
+    font-size:28px;
+
+    font-weight:bold;
+
+    margin-bottom:6px;
+
+}
+
+.transfer-state{
+
+    font-size:13px;
+
+    opacity:.95;
+
+}
+
+.transfer-bottom{
+
+    background:rgba(255,255,255,.18);
+
+    color:white;
+
+    font-size:12px;
+
+    padding:8px 14px;
+
+}
+
+.my-transfer{
+
+    margin-right:8px;
+
+}
+/*==========================
+      微信发送失败
+==========================*/
+
+.failed-message{
+
+    align-items:center;
+
+}
+
+.failed-icon{
+
+    width:20px;
+
+    height:20px;
+
+    margin-right:8px;
+
+    border-radius:50%;
+
+    background:#ff4d4f;
+
+    color:white;
+
+    font-size:14px;
+
+    font-weight:bold;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-shrink:0;
+
+}
+.chat-photo{
+    width:220px;
+    border-radius:10px;
+    display:block;
+}
+.image-bubble{
+    background:transparent;
+    padding: 0;
+    border-radius: 12px;
+    box-shadow: none;
+    margin-right: 8px;
+}

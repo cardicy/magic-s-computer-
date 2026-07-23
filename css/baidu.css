@@ -1,0 +1,189 @@
+.browser-window{
+
+    position: fixed;
+
+    left: 50%;
+
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 1000px;
+
+    height: 700px;
+
+    background: white;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    box-shadow: 0 20px 60px rgba(0,0,0,.25);
+
+    z-index: 9999;
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+.browser-home{
+
+    flex:1;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:flex-start;
+
+    padding-top: 120px;
+
+    align-items:center;
+
+}
+.baidu-logo{
+    width:220px;
+    margin-bottom:35px;
+}
+
+.search-area{
+    display:flex;
+}
+
+#browser-search{
+
+    width:520px;
+    height:48px;
+
+    border:2px solid #4e6ef2;
+
+    border-right:none;
+
+    border-radius:25px 0 0 25px;
+
+    padding:0 20px;
+
+    font-size:18px;
+
+    outline:none;
+
+}
+
+#browser-search-btn{
+
+    width:120px;
+
+    border:none;
+
+    background:#4e6ef2;
+
+    color:white;
+
+    font-size:18px;
+
+    border-radius:0 25px 25px 0;
+
+    cursor:pointer;
+
+}
+.browser-window.hidden{
+
+    display:none;
+
+}
+.browser-top{
+
+    height:60px;
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    align-items:center;
+
+    padding:0 20px;
+
+    border-bottom:1px solid #eee;
+
+}
+#browser-close{
+
+    background:none;
+
+    border:none;
+
+    font-size:34px;
+
+    cursor:pointer;
+
+}
+.search-wrapper{
+    position:relative;
+    width:640px;
+}
+
+.search-area{
+    display:flex;
+}
+/* 搜索记录 */
+
+.search-history{
+
+    position:absolute;
+
+    top:58px;
+
+    left:0;
+
+    width:640px;
+
+    display:none;
+
+    background:#fff;
+
+    border-radius:0 0 18px 18px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.12);
+
+    overflow:hidden;
+
+    z-index:999;
+
+}
+.search-wrapper:focus-within .search-history{
+
+    display:block;
+
+}
+.history-item{
+
+    padding:12px 18px;
+
+    font-size:15px;
+
+    color:#444;
+
+    cursor:pointer;
+
+}
+
+.history-item:hover{
+
+    background:#f5f5f5;
+
+}
+.history-footer{
+
+    border-top:1px solid #eee;
+
+    text-align:center;
+
+    padding:12px;
+
+    color:#999;
+
+    font-size:14px;
+
+}

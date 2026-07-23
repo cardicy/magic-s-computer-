@@ -1,0 +1,3213 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Magic OS</title>
+
+    <link rel="stylesheet" href="css/signin.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/wechat.css">
+    <link rel="stylesheet" href="css/txl.css">
+    <link rel="stylesheet" href="css/moments.css">
+    <link rel="stylesheet" href="css/message.css">
+    <link rel="stylesheet" href="css/baidu.css">
+    <link rel="stylesheet" href="css/weibo.css">
+    <link rel="stylesheet" href="css/luntan.css">
+    <link rel="stylesheet" href="css/post.css">
+
+</head>
+
+<body>
+    <!--==============================
+    Sign In
+================================-->
+
+    <div id="signin-screen">
+
+        <div class="signin-box">
+
+            <img id="signin-avatar" src="images/avatar/xiaoatouxiang.jpg" class="signin-avatar">
+
+            <div id="signin-name">
+                小A
+            </div>
+
+            <input id="signin-password" type="password" value="123456" readonly class="hidden">
+
+            <button id="signin-btn">
+                Sign In
+            </button>
+
+        </div>
+
+
+        <!-- 左下角账户 -->
+
+        <div class="user-list">
+
+            <div class="user-item active" id="user-xiaoa">
+
+                <img src="images/avatar/xiaoatouxiang.jpg">
+
+                <span>小A</span>
+
+            </div>
+
+            <div class="user-item" id="user-magic">
+
+                <img src="images/avatar/magictouxiang.jpg">
+
+                <span>Magic</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="desktop hidden" id="desktop">
+
+        <!-- 左边桌面图标 -->
+        <div class="desktop-icons">
+
+            <div class="icon" id="wechat-icon">
+                <img src="images/icons/wechat.png" class="icon-image">
+                <div class="icon-text">微信</div>
+            </div>
+
+            <div class="icon" id="forum-btn">
+                <img src="images/icons/zhonghe3.png" class="icon-image">
+                <div class="icon-text">众和论坛</div>
+            </div>
+
+            <div class="icon">
+                <img src="images/icons/dingding.png" class="icon-image">
+                <div class="icon-text">钉钉</div>
+            </div>
+
+            <!-- 回收站 -->
+            <div class="icon">
+                <img src="images/icons/recyclebin.png" class="icon-image">
+                <div class="icon-text">回收站</div>
+            </div>
+
+        </div>
+
+        <!-- 任务栏 -->
+        <div class="taskbar">
+
+            <!-- 中间 -->
+            <div class="task-center">
+
+                <!-- 开始按钮 -->
+                <div class="start-button">
+                    <img src="images/icons/chushijiemian.png" class="taskbar-icon">
+                </div>
+
+                <!-- 搜索框 -->
+                <div class="search-box">
+                    🔍 搜索
+                </div>
+
+                <!-- 文件夹 -->
+                <div class="task-icon">
+                    <img src="images/icons/wenjianjia.png" class="taskbar-icon">
+                </div>
+
+                <!-- 短信 -->
+                <div id="messages-btn" class="task-icon">
+
+                    <img src="images/icons/duanxing.png" class="taskbar-icon">
+
+                </div>
+
+                <!-- 浏览器 -->
+                <div id="browser-btn" class="task-icon">
+                    <img src="images/icons/liulanqi.png" class="taskbar-icon">
+                </div>
+
+            </div>
+
+            <!-- 右边 -->
+            <div class="task-right">
+
+                📶
+
+                🔊
+
+                <span id="clock">13:41</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- 微信登录窗口 -->
+    <div id="wechat-login" class="window hidden">
+
+        <div class="window-title">
+
+            <span>微信</span>
+
+            <button class="close-btn">✕</button>
+
+        </div>
+
+        <div class="login-content">
+            <!-- 默认微信Logo -->
+
+
+            <img id="login-avatar" src="images/icons/wechat.png" class="login-avatar">
+
+            <h2 id="login-name">微信</h2>
+
+            <input type="text" placeholder="帐号" id="phone">
+
+            <input type="password" placeholder="密码" id="password">
+
+            <button id="login-btn">
+                登录
+            </button>
+
+            <p id="login-error"></p>
+
+            <p class="password-tip">
+                密码提示：🎂(8位)
+            </p>
+        </div>
+
+    </div>
+
+    <!-- 微信大号主界面 -->
+    <div id="wechat-window" class="wechat-window hidden">
+        <div class="window-topbar">
+
+            <div class="window-title">
+                微信
+            </div>
+
+            <div class="window-close" id="wechat-close">
+                ✕
+            </div>
+
+        </div>
+
+        <!-- 左侧导航 -->
+        <div class="wechat-sidebar">
+
+            <div class="sidebar-icon active" id="chat-btn">
+                💬
+            </div>
+
+            <div class="sidebar-icon" id="contact-btn">
+                👤
+            </div>
+
+            <div class="sidebar-icon" id="moments-btn">
+                🌎
+            </div>
+
+            <div class="sidebar-bottom">
+
+                <div class="sidebar-icon" id="menu-btn">
+                    ☰
+                </div>
+
+            </div>
+
+        </div>
+
+        <div id="user-menu" class="user-menu hidden">
+
+            <div class="menu-item">
+                切换账号
+            </div>
+
+            <div class="menu-item">
+                设置
+            </div>
+
+            <div class="menu-item" id="logout">
+                退出登录
+            </div>
+
+        </div>
+
+        <!-- 联系人 -->
+        <div class="chat-list">
+
+            <div class="chat-item active" id="contact-file">
+                <div class="chat-info">
+                    <div class="chat-name">📁 文件传输助手</div>
+                    <div class="chat-preview">20200120-市场分析报告.pptx（4）</div>
+                </div>
+            </div>
+
+            <div class="chat-item">
+                <div class="chat-info">
+                    <div class="chat-name">👥 众和HR3群</div>
+                    <div class="chat-preview">Peter：下午一点会议。</div>
+                </div>
+            </div>
+
+            <div class="chat-item">
+                <div class="chat-info">
+                    <div class="chat-name">👤 潘马壮</div>
+                    <div class="chat-preview">潘妮不叛逆：马杰你咋了？</div>
+                </div>
+            </div>
+
+            <div id="contact-coffee" class="chat-item">
+                <div class="chat-info">
+                    <div class="chat-name">☕ 众和楼下咖啡店拼单群</div>
+                    <div class="chat-preview">AAA咖啡销售冠军小卡：今天买咖啡...</div>
+                </div>
+            </div>
+
+            <div class="chat-item" id="contact-liuliu">
+                <div class="chat-info">
+                    <div class="chat-name">🐕‍🦺 遛狗群</div>
+                    <div class="chat-preview">愤怒养狗人：遛狗不拴狗，等于狗遛狗。</div>
+                </div>
+            </div>
+
+            <div class="chat-item" id="contact-panni">
+                <div class="chat-info">
+                    <div class="chat-name">😈 助我pdd砍一刀</div>
+                    <div class="chat-preview">求您帮我砍一刀：人呢？？？</div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <!-- 聊天窗口 -->
+        <div id="chat-file" class="chat-content active">
+
+            <div class="chat-header">
+                📁 文件传输助手
+            </div>
+
+            <div class="chat-messages">
+
+                <div class="chat-time">
+                    2019年12月09日 8:37
+                </div>
+
+                <div class="my-message">
+
+                    <div class="message-bubble">
+                        今日工作安排：</b><br>
+
+                        1. 点一杯咖啡，今天买咖啡送小饼干！<br>
+                        2. 昨天Peter给的文件整理好👌<br>
+                        3. 溜溜手抄报作业（顺两张A4纸回家）<br>
+                        4. 14:00 上楼汇报
+
+                    </div>
+
+                    <img src="images/avatar/magictouxiang.jpg" class="chat-avatar">
+
+                </div>
+
+                <!-- PPT（3） -->
+                <div class="chat-time">
+                    2019年12月09日 10:26
+                </div>
+
+                <div class="my-message">
+
+                    <div class="file-message">
+
+                        <div class="file-info">
+                            <div class="file-name">
+                                📊 20200120-市场分析报告.pptx（3）
+                            </div>
+
+                            <div class="file-size">
+                                PowerPoint 演示文稿
+                            </div>
+                        </div>
+
+                        <div class="file-icon">
+                            PPT
+                        </div>
+
+                    </div>
+
+                    <img src="images/avatar/magictouxiang.jpg" class="chat-avatar">
+
+                </div>
+
+
+                <!-- PPT（3.5） -->
+                <div class="chat-time">
+                    2019年12月09日 10:45
+                </div>
+
+                <div class="my-message">
+
+                    <div class="file-message">
+
+                        <div class="file-info">
+                            <div class="file-name">
+                                📊 20200120-市场分析报告.pptx（3.5）
+                            </div>
+
+                            <div class="file-size">
+                                PowerPoint 演示文稿
+                            </div>
+                        </div>
+
+                        <div class="file-icon">
+                            PPT
+                        </div>
+
+                    </div>
+
+                    <img src="images/avatar/magictouxiang.jpg" class="chat-avatar">
+
+                </div>
+
+
+                <!-- PPT（4） -->
+                <div class="chat-time">
+                    2019年12月09日 11:12
+                </div>
+
+                <div class="my-message">
+
+                    <div class="file-message">
+
+                        <div class="file-info">
+                            <div class="file-name">
+                                📊 20200120-市场分析报告.pptx（4）
+                            </div>
+
+                            <div class="file-size">
+                                PowerPoint 演示文稿
+                            </div>
+                        </div>
+
+                        <div class="file-icon">
+                            PPT
+                        </div>
+
+                    </div>
+
+                    <img src="images/avatar/magictouxiang.jpg" class="chat-avatar">
+
+                </div>
+
+            </div>
+
+        </div> <!-- chat-messages -->
+
+        <!--咖啡群聊天-->>
+
+        <div id="chat-coffee" class="chat-content">
+
+            <div class="chat-header">
+                ☕ 众和楼下咖啡店拼单群
+            </div>
+
+            <div class="chat-messages">
+
+                <!-- 时间 -->
+                <div class="chat-time">
+                    2019年12月09日 11:35
+                </div>
+
+                <!-- Bob -->
+                <div class="other-message">
+
+                    <img src="images/avatar/bobtouxiang.jpg" class="chat-avatar">
+
+                    <div class="message-bubble">
+                        下午有人下楼买咖啡吗？☕
+                    </div>
+
+                </div>
+
+                <!-- Amy -->
+                <div class="other-message">
+
+                    <img src="images/avatar/amytouxiang.jpg" class="chat-avatar">
+
+                    <div class="message-bubble">
+                        我想喝冰拿铁！
+                    </div>
+
+                </div>
+
+                <!-- Peter -->
+                <div class="other-message">
+
+                    <img src="images/touxiang1.jpg" class="chat-avatar">
+
+                    <div class="message-bubble">
+                        一杯美式谢谢！😎
+                    </div>
+
+                </div>
+
+                <!-- Magic -->
+                <div class="my-message">
+
+                    <div class="message-bubble">
+                        那我下楼顺便带。
+                    </div>
+
+                    <img src="images/avatar/magictouxiang.jpg" class="chat-avatar">
+
+                </div>
+
+                <!-- 小程序 -->
+                <div class="other-message">
+
+                    <img src="images/avatar/coffeetouxiang.jpg" class="chat-avatar">
+
+                    <div class="mini-program">
+
+                        <div class="mini-header">
+                            ☕ Lucky Coffee
+                        </div>
+
+                        <div class="mini-title">
+                            今日免费送小食
+                        </div>
+
+                        <img src="images/miniprogram/coffee.jpg" class="mini-image">
+
+                        <div class="mini-footer">
+                            🔗 小程序
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- AAA咖啡销售冠军小卡 -->
+                <div class="other-message">
+
+                    <img src="images/avatar/coffeetouxiang.jpg" class="chat-avatar">
+
+                    <div class="message-bubble">
+                        短信回复工号可以送小曲奇哦！
+                    </div>
+
+                </div>
+
+                <!-- Magic -->
+                <div class="my-message">
+
+                    <div class="message-bubble">
+                        已点，一会儿拿上来👌。
+                    </div>
+
+                    <img src="images/avatar/magictouxiang.jpg" class="chat-avatar">
+
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+        <div id="contact-page" class="hidden">
+
+            <div class="contact-container">
+
+                <div class="contact-left">
+
+
+                    <div class="contact-search">
+                        🔍 搜索
+                    </div>
+
+                    <div class="contact-title">
+                        通讯录管理
+                    </div>
+
+                    <div class="contact-item">
+                        👤 新的朋友
+                    </div>
+
+                    <div class="contact-item">
+                        👥 群聊
+                    </div>
+
+                    <div class="contact-item">
+                        📢 公众号
+                    </div>
+
+                    <div class="contact-item">
+                        ⭐ 服务号
+                    </div>
+
+                    <div class="contact-item">
+                        💼 企业微信联系人
+                    </div>
+
+                    <div class="contact-item">
+                        📇 联系人
+                    </div>
+
+                    <div class="contact-letter">
+                        A
+                    </div>
+
+                    <div class="contact-person">
+                        <img src="images/avatar/coffeetouxiang.jpg">
+                        AAA咖啡销售冠军小卡
+                    </div>
+
+                    <div class="contact-person">
+                        <img src="images/avatar/quantouxiang.jpg">
+                        AAA抢券大王
+                    </div>
+
+                    <div class="contact-person">
+                        <img src="images/avatar/amytouxiang.jpg">
+                        Amy-设计部
+                    </div>
+
+                    <div class="contact-letter">
+                        B
+                    </div>
+
+                    <div class="contact-person">
+                        <img src="images/avatar/bobtouxiang.jpg">
+                        Bob-销售一部
+                    </div>
+                </div>
+
+                <div class="contact-right">
+
+                    <div class="wechat-logo">
+
+                        💬
+
+                        <div class="wechat-text">
+                            微信
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div> <!-- contact-container -->
+
+        </div> <!-- contact-page -->
+
+    </div> <!-- wechat-window -->
+
+    <!--=========================
+        朋友圈窗口
+==========================-->
+
+    <div id="moments-window" class="moments-window hidden">
+
+        <!-- 顶部 -->
+        <div class="moments-topbar">
+
+            <div class="moments-left">
+
+                <span class="moments-icon">🔔</span>
+
+                <span class="moments-icon">📷</span>
+
+                <span class="moments-icon">↻</span>
+
+            </div>
+
+            <div class="moments-title">
+                朋友圈
+            </div>
+
+            <div class="moments-right">
+
+                <span class="moments-time">
+                    15:55
+                </span>
+
+                <button id="moments-close">
+                    ✕
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- 内容 -->
+        <div class="moments-body">
+
+            <!--==============================
+                第一条
+        ==============================-->
+
+            <div class="moment-item">
+
+                <img src="images/avatar/magictouxiang.jpg" class="moment-avatar">
+
+                <div class="moment-content">
+
+                    <div class="moment-name">
+                        Magic-员企
+                    </div>
+
+                    <div class="moment-text">
+                        此号停用，交接另等通知。
+                    </div>
+
+                    <div class="moment-footer">
+
+                        <span>
+                            五个月前
+                        </span>
+
+                        <span class="moment-more">
+                            ···
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="moment-item">
+
+                <img src="images/avatar/coffeetouxiang.jpg" class="moment-avatar">
+
+                <div class="moment-content">
+
+                    <div class="moment-name">
+                        AAA咖啡销售冠军小卡
+                    </div>
+
+                    <div class="moment-text">
+
+                        11.9元起喝爆品｜咖啡星期五💥<br>
+                        ✅发送工号免费领小曲奇！<br>
+                        优惠限今日👉<br>
+                        <span class="moment-link">
+                            #小程序：//coffee
+                        </span>
+                        <br><br>
+                        <span class="moment-link">
+                            全文
+                        </span>
+
+                    </div>
+                    <img src="images/miniprogram/coffee.jpg" class="moment-image">
+                    <div class="moment-footer">
+                        <span>
+                            五个月前
+                        </span>
+                        <span class="moment-more">
+                            ···
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!--==============================
+                第二条
+        ==============================-->
+
+            <div class="moment-item">
+
+                <img src="images/avatar/petertouxiang.jpg" class="moment-avatar">
+
+                <div class="moment-content">
+
+                    <div class="moment-name">
+                        Peter-员企
+                    </div>
+
+                    <div class="moment-text">
+                        今天晚上酒局😎
+                    </div>
+
+                    <div class="moment-footer">
+
+                        <span>
+                            七个月前
+                        </span>
+
+                        <span class="moment-more">
+                            ···
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!--==============================
+                第三条
+        ==============================-->
+
+            <div class="moment-item">
+
+                <img src="images/avatar/viviantouxiang.jpg" class="moment-avatar">
+
+                <div class="moment-content">
+
+                    <div class="moment-name">
+                        Vivian-前员企一组
+                    </div>
+
+                    <div class="moment-text">
+
+                        早就该跳槽了！！！
+
+                    </div>
+
+                    <img src="images/moments/leave.jpg" class="moment-image">
+
+                    <div class="moment-footer">
+
+                        <span>
+                            八个月前
+                        </span>
+
+                        <span class="moment-more">
+                            ···
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!--==============================
+                第四条
+        ==============================-->
+
+            <div class="moment-item">
+
+                <img src="images/avatar/chloetouxiang.jpg" class="moment-avatar">
+
+                <div class="moment-content">
+
+                    <div class="moment-name">
+                        Chloe
+                    </div>
+
+                    <div class="moment-text">
+
+                        <span class="official-tag">
+                            公众号
+                        </span>
+
+                    </div>
+
+                    <div class="official-card">
+
+                        <img src="images/moments/news.jpg" class="official-image">
+
+                        <div class="official-title">
+
+                            【众和集团讯】严正声明——和解是一种力量
+
+                        </div>
+
+                    </div>
+
+                    <div class="moment-footer">
+
+                        <span>
+                            十一个月前
+                        </span>
+
+                        <span class="moment-more">
+                            ···
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- 微信小号主界面 -->
+    <div id="wechat-private-window" class="wechat-window hidden">
+        <div class="window-topbar">
+
+            <div class="window-title">
+                微信
+            </div>
+
+            <div class="window-close" id="wechat-private-close">
+                ✕
+            </div>
+
+        </div>
+
+        <!-- 左侧导航 -->
+        <div class="wechat-sidebar">
+
+            <div class="sidebar-icon active" id="private-chat-btn">
+                💬
+            </div>
+
+            <div class="sidebar-icon" id="private-contact-btn">
+                👤
+            </div>
+
+            <div id="private-moments-btn" class="sidebar-icon">
+                🌎
+            </div>
+
+            <div class="sidebar-bottom">
+
+                <div class="sidebar-icon" id="private-menu-btn">
+                    ☰
+                </div>
+
+            </div>
+
+        </div>
+
+        <div id="private-user-menu" class="user-menu hidden">
+
+            <div class="menu-item">
+                切换账号
+            </div>
+
+            <div class="menu-item">
+                设置
+            </div>
+
+            <div class="menu-item" id="private-logout">
+                退出登录
+            </div>
+
+        </div>
+
+        <!-- 联系人 -->
+        <div id="private-chat-list" class="chat-list">
+
+
+            <div class="chat-item" id="private-contact-liuliu">
+                <div class="chat-info">
+                    <div class="chat-name">🐶 溜溜宝贝</div>
+                    <div class="chat-preview">妈妈，你什么时候回来？</div>
+                </div>
+            </div>
+
+            <div class="chat-item" id="private-contact-panni">
+                <div class="chat-info">
+                    <div class="chat-name">🐈 潘妮不叛逆</div>
+                    <div class="chat-preview">马杰你人呢？？？</div>
+                </div>
+            </div>
+
+           <div class="chat-item" id="private-contact-xuyunfeng">
+                <div class="chat-info">
+                    <div class="chat-name">🏔️ 徐云峰</div>
+                    <div class="chat-preview">……</div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 聊天区域 -->
+
+
+
+        <div id="private-chat-liuliu" class="chat-content">
+
+            <div class="chat-header">
+                🐶 溜溜宝贝
+            </div>
+
+            <div class="chat-messages">
+
+                <div class="chat-time">
+                    2019年12月07日 18:09
+                </div>
+
+                <div class="other-message">
+
+                    <img src="images/avatar/liuliutouxiang.jpg" class="other-avatar">
+
+                    <div class="other-bubble">
+                        妈妈你今天还来接我回家吗？还是徐叔叔来？
+                    </div>
+
+                </div>
+
+
+                <div class="my-message">
+
+                    <div class="message-bubble">
+                        今天可能得让叔叔接你回家了。
+                    </div>
+
+                    <img src="images/avatar/magictouxiang.jpg" class="chat-avatar">
+
+                </div>
+
+
+                <div class="my-message">
+
+                    <div class="message-bubble">
+                        妈妈今天给你带小蛋糕好不好？
+                    </div>
+
+                    <img src="images/avatar/magictouxiang.jpg" class="chat-avatar">
+
+                </div>
+
+
+                <div class="other-message">
+
+                    <img src="images/avatar/liuliutouxiang.jpg" class="other-avatar">
+
+
+                    <div class="other-bubble">
+                        好吧😞
+                    </div>
+
+                </div>
+
+
+
+                <div class="chat-time">
+                    2019年12月08日 17:57
+                </div>
+
+
+                <div class="other-message">
+
+                    <img src="images/avatar/liuliutouxiang.jpg" class="other-avatar">
+
+
+                    <div class="other-bubble">
+                        妈咪我已经回家了。
+                    </div>
+
+                </div>
+
+
+                <div class="other-message">
+
+                    <img src="images/avatar/liuliutouxiang.jpg" class="other-avatar">
+
+                    <div class="other-bubble">
+                        还是徐叔叔来接我的。
+                    </div>
+
+                </div>
+
+
+                <div class="other-message">
+
+                    <img src="images/avatar/liuliutouxiang.jpg" class="other-avatar">
+
+
+                    <div class="other-bubble">
+                        叔叔今天给我买了爱莎公主的玩具！
+                    </div>
+
+                </div>
+
+
+                <div class="other-message">
+
+                    <img src="images/avatar/liuliutouxiang.jpg" class="other-avatar">
+
+
+                    <div class="other-bubble">
+                        妈妈我好想你！
+                    </div>
+
+                </div>
+
+
+                <div class="other-message">
+
+                    <img src="images/avatar/liuliutouxiang.jpg" class="other-avatar">
+
+
+                    <div class="other-bubble">
+                        妈妈，你什么时候回来？
+                    </div>
+
+                </div>
+
+                <div class="chat-time">
+                    2020年1月1日 13:23
+                </div>
+
+
+                <div class="other-message">
+
+                    <img src="images/avatar/liuliutouxiang.jpg" class="other-avatar">
+
+
+                    <div class="other-bubble">
+                        妈咪我们以后还能见到徐叔叔吗。
+                    </div>
+
+                </div>
+
+                <div class="my-message">
+
+                    <div class="message-bubble">
+                        宝宝，这个我也不知道。
+                    </div>
+
+                    <img src="images/avatar/magictouxiang.jpg" class="chat-avatar">
+
+                </div>
+
+            </div>
+
+        </div> <!-- chat-liuliu -->
+        <div id="private-chat-panni" class="chat-content">
+
+            <div class="chat-header">
+                😈 潘妮不叛逆
+            </div>
+
+            <div class="chat-messages">
+
+                <div class="chat-time">
+                    2020年1月12日 12:58
+                </div>
+
+                <div class="other-message">
+
+                    <img src="images/avatar/pantouxiang.jpg" class="other-avatar">
+
+                    <div class="other-bubble">
+                        你最近咋样啊？
+                    </div>
+
+                </div>
+
+
+                <div class="my-message">
+
+                    <div class="message-bubble">
+                        还行吧…
+                    </div>
+
+                    <img src="images/avatar/magictouxiang.jpg" class="chat-avatar">
+
+                </div>
+
+
+                <div class="other-message">
+
+                    <img src="images/avatar/pantouxiang.jpg" class="other-avatar">
+
+                    <div class="other-bubble">
+                        你在分公司还习惯吗？
+                    </div>
+
+                </div>
+
+                <div class="other-message">
+
+                    <img src="images/avatar/pantouxiang.jpg" class="other-avatar">
+
+                    <div class="other-bubble">
+                        哦，对。论坛里有说你是徐云峰小蜜的。
+                    </div>
+
+                </div>
+
+                <div class="other-message">
+
+                    <img src="images/avatar/pantouxiang.jpg" class="other-avatar">
+
+                    <div class="other-bubble">
+                        下面评论说没见过班味这么重的小蜜。
+                    </div>
+
+                </div>
+
+                <div class="other-message">
+
+                    <img src="images/avatar/pantouxiang.jpg" class="other-avatar">
+
+                    <div class="other-bubble">
+                        这不明晃晃的小蜜歧视吗！
+                    </div>
+
+                </div>
+
+
+
+                <div class="my-message">
+
+                    <div class="message-bubble">
+                        我没太明白。
+                    </div>
+
+                    <img src="images/avatar/magictouxiang.jpg" class="chat-avatar">
+
+                </div>
+
+
+                <div class="other-message">
+
+                    <img src="images/avatar/pantouxiang.jpg" class="other-avatar">
+
+                    <div class="other-bubble">
+                        你不会真是吧？？
+                    </div>
+
+                </div>
+
+                <div class="other-message">
+
+                    <img src="images/avatar/pantouxiang.jpg" class="other-avatar">
+
+                    <div class="other-bubble">
+                        马杰！！！你疯啦？？大义灭亲？
+                    </div>
+
+                </div>
+
+
+                <div class="my-message">
+
+                    <div class="message-bubble">
+                        嗯。。
+                    </div>
+
+                    <img src="images/avatar/magictouxiang.jpg" class="chat-avatar">
+
+                </div>
+
+
+                <div class="other-message">
+
+                    <img src="images/avatar/pantouxiang.jpg" class="other-avatar">
+
+                    <div class="other-bubble">
+                        ………
+                    </div>
+
+                </div>
+
+
+                <div class="other-message">
+
+                    <img src="images/avatar/pantouxiang.jpg" class="other-avatar">
+
+                    <div class="other-bubble">
+                        这不会就是你去分公司的原因吧。
+                    </div>
+
+                </div>
+
+
+                <div class="my-message">
+
+                    <div class="message-bubble">
+                        额额…
+                    </div>
+
+                    <img src="images/avatar/magictouxiang.jpg" class="chat-avatar">
+
+                </div>
+
+
+                <div class="other-message">
+
+                    <img src="images/avatar/pantouxiang.jpg" class="other-avatar">
+
+                    <div class="other-bubble">
+                        怎么了？
+                    </div>
+
+                </div>
+
+
+                <div class="my-message">
+
+                    <div class="message-bubble">
+                        其实…
+                    </div>
+
+                    <img src="images/avatar/magictouxiang.jpg" class="chat-avatar">
+
+                </div>
+
+
+                <div class="other-message">
+
+                    <img src="images/avatar/pantouxiang.jpg" class="other-avatar">
+
+                    <div class="other-bubble">
+                        ？
+                    </div>
+
+                </div>
+
+
+
+                <div class="chat-time">
+                    2020年1月12日 14:37
+                </div>
+
+
+                <div class="other-message">
+
+                    <img src="images/avatar/pantouxiang.jpg" class="other-avatar">
+
+                    <div class="other-bubble">
+                        马杰你人呢？？？
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div> <!-- chat-panni -->
+
+        <div id="private-chat-xuyunfeng" class="chat-content">
+
+            <div class="chat-header">
+                🏔️ 徐云峰
+            </div>
+
+            <div class="chat-messages">
+
+                <div class="chat-time">
+                    2019年6月19日
+                </div>
+
+                <div class="my-message">
+
+                    <div class="message-bubble">
+                        溜溜说想你了，你什么时候出差回来？
+                    </div>
+
+                    <img src="images/avatar/magictouxiang.jpg" class="chat-avatar">
+
+                </div>
+
+                <div class="other-message">
+
+                    <img src="images/avatar/xutouxiang.jpg" class="other-avatar">
+
+                    <div class="other-bubble">
+                        明天早上就回去。
+                    </div>
+
+                </div>
+
+                <div class="my-message">
+
+                    <div class="message-bubble">
+                        项目不是大后天才结束吗？
+                    </div>
+
+                    <img src="images/avatar/magictouxiang.jpg" class="chat-avatar">
+
+                </div>
+
+                <div class="other-message">
+
+                    <img src="images/avatar/xutouxiang.jpg" class="other-avatar">
+
+                    <div class="other-bubble">
+                        我先回来见见溜溜。<br>
+                        下午再飞回去。
+                    </div>
+
+                </div>
+
+                <div class="my-message">
+
+                    <div class="message-bubble">
+                        ？！
+                    </div>
+
+                    <img src="images/avatar/magictouxiang.jpg" class="chat-avatar">
+
+                </div>
+
+                <div class="chat-time">
+                    2019年7月20日
+                </div>
+
+                <div class="my-message">
+
+                    <div class="image-bubble">
+
+                        <img src="images/moments/youleyuan.jpg" class="chat-photo">
+
+                    </div>
+
+                    <img src="images/avatar/magictouxiang.jpg" class="chat-avatar">
+
+                </div>
+
+                <div class="my-message">
+
+                    <div class="message-bubble">
+                        溜溜笑得好开心！
+                    </div>
+
+                    <img src="images/avatar/magictouxiang.jpg" class="chat-avatar">
+
+                </div>
+
+                <div class="other-message">
+
+                    <img src="images/avatar/xutouxiang.jpg" class="other-avatar">
+
+                    <div class="other-bubble">
+                        烟花漂亮。
+                    </div>
+
+                </div>
+
+                <div class="my-message">
+
+                    <div class="message-bubble">
+                        徐总大忙人，我都请年假出来了你又要出差！
+                    </div>
+
+                    <img src="images/avatar/magictouxiang.jpg" class="chat-avatar">
+
+                </div>
+
+                <div class="other-message">
+
+                    <img src="images/avatar/xutouxiang.jpg" class="other-avatar">
+
+                    <div class="other-bubble">
+                        下次一定陪你们俩去。
+                    </div>
+
+                </div>
+
+                <div class="other-message">
+
+                    <img src="images/avatar/xutouxiang.jpg" class="other-avatar">
+
+                    <div class="other-bubble">
+                        去东京环球影城好不好？
+                    </div>
+
+                </div>
+
+                <div class="my-message">
+
+                    <div class="message-bubble">
+                        ！！！
+                    </div>
+
+                    <img src="images/avatar/magictouxiang.jpg" class="chat-avatar">
+
+                </div>
+
+                <div class="chat-time">
+                    2019年8月20日
+                </div>
+
+                <div class="my-message">
+
+                    <div class="image-bubble">
+
+                        <img src="images/moments/picture.jpg" class="chat-photo">
+
+                    </div>
+
+                    <img src="images/avatar/magictouxiang.jpg" class="chat-avatar">
+
+                </div>
+
+                <div class="other-message">
+
+                    <img src="images/avatar/xutouxiang.jpg" class="other-avatar">
+
+                    <div class="other-bubble">
+                        可爱。
+                    </div>
+
+                </div>
+
+                <div class="other-message">
+
+                    <img src="images/avatar/xutouxiang.jpg" class="other-avatar">
+
+                    <div class="other-bubble">
+                        为什么我是青蛙？
+                    </div>
+
+                </div>
+
+                <div class="my-message">
+
+                    <div class="message-bubble">
+                        不像吗？
+                    </div>
+
+                    <img src="images/avatar/magictouxiang.jpg" class="chat-avatar">
+
+                </div>
+
+                <div class="other-message">
+
+                    <img src="images/avatar/xutouxiang.jpg" class="other-avatar">
+
+                    <div class="other-bubble">
+                        不觉得。
+                    </div>
+
+                </div>
+
+
+                <div class="other-message">
+
+                    <img src="images/avatar/xutouxiang.jpg" class="other-avatar">
+
+                    <div class="other-bubble">
+                        不过溜溜说像就像。
+                    </div>
+
+                </div>
+
+                <div class="chat-time">
+                    2019年9月22日
+                </div>
+
+                <div class="my-message">
+
+                    <div class="message-bubble">
+                        明天我们偷偷地回家给溜溜一个大惊喜！不知道溜溜看到这么大的蛋糕会不会很开心呢～
+                    </div>
+
+                    <img src="images/avatar/magictouxiang.jpg" class="chat-avatar">
+
+                </div>
+
+                <div class="other-message">
+
+                    <img src="images/avatar/xutouxiang.jpg" class="other-avatar">
+
+                    <div class="other-bubble">
+                        当然。
+                    </div>
+
+                </div>
+                <div class="chat-time">
+                    2019年9月30日
+                </div>
+
+                <div class="my-message">
+
+                    <div class="message-bubble">
+                        ！真说中了！！！<br>
+
+                        早知道就买那个彩票了！<br>
+
+                        少说也能赚两三千呢！<br>
+
+                        气死我了！
+                    </div>
+
+                    <img src="images/avatar/magictouxiang.jpg" class="chat-avatar">
+
+                </div>
+
+                <div class="other-message">
+
+                    <img src="images/avatar/xutouxiang.jpg" class="other-avatar">
+
+                    <div class="transfer-card">
+
+                        <div class="transfer-top">
+
+                            <div class="transfer-money">
+                                ¥5200.00
+                            </div>
+
+                            <div class="transfer-state">
+                                已被接收
+                            </div>
+
+                        </div>
+
+                        <div class="transfer-bottom">
+                            微信转账
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="other-message">
+
+                    <img src="images/avatar/xutouxiang.jpg" class="other-avatar">
+
+                    <div class="other-bubble">
+                        我证明你确实说中了。
+                    </div>
+
+                </div>
+
+                <div class="other-message">
+
+                    <img src="images/avatar/xutouxiang.jpg" class="other-avatar">
+
+                    <div class="other-bubble">
+                        今天晚上有空吗？<br>
+                        肯赏脸陪我吃个饭吗？
+                    </div>
+
+                </div>
+
+                <div class="my-message">
+
+                    <div class="transfer-card my-transfer">
+
+                        <div class="transfer-top">
+
+                            <div class="transfer-money">
+                                ¥5200.00
+                            </div>
+
+                            <div class="transfer-state">
+                                已收款
+                            </div>
+
+                        </div>
+
+                        <div class="transfer-bottom">
+                            微信转账
+                        </div>
+
+                    </div>
+
+                    <img src="images/avatar/magictouxiang.jpg" class="chat-avatar">
+
+                </div>
+
+                <div class="my-message">
+
+                    <div class="message-bubble">
+                        出发！我要吃顿好的！
+                    </div>
+
+                    <img src="images/avatar/magictouxiang.jpg" class="chat-avatar">
+
+                </div>
+
+                <div class="chat-time">
+                    2019年10月18日
+                </div>
+
+                <div class="my-message">
+
+                    <div class="message-bubble">
+                        徐总，生日快乐！
+                    </div>
+
+                    <img src="images/avatar/magictouxiang.jpg" class="chat-avatar">
+
+                </div>
+
+                <div class="other-message">
+
+                    <img src="images/avatar/xutouxiang.jpg" class="other-avatar">
+
+                    <div class="other-bubble">
+                        嗯。
+                    </div>
+
+                </div>
+
+                <div class="other-message">
+
+                    <img src="images/avatar/xutouxiang.jpg" class="other-avatar">
+
+                    <div class="other-bubble">
+                        礼物呢？
+                    </div>
+
+                </div>
+
+                <div class="my-message">
+
+                    <div class="message-bubble">
+                        ！
+                    </div>
+
+                    <img src="images/avatar/magictouxiang.jpg" class="chat-avatar">
+
+                </div>
+
+                <div class="my-message">
+
+                    <div class="message-bubble">
+                        我？
+                    </div>
+
+                    <img src="images/avatar/magictouxiang.jpg" class="chat-avatar">
+
+                </div>
+
+                <div class="other-message">
+
+                    <img src="images/avatar/xutouxiang.jpg" class="other-avatar">
+
+                    <div class="other-bubble">
+                        Deal.
+                    </div>
+
+                </div>
+
+                <div class="chat-time">
+                    2019年11月29日
+                </div>
+
+                <div class="my-message">
+
+                    <div class="message-bubble">
+                        对不起，徐云峰。
+                    </div>
+
+                    <img src="images/avatar/magictouxiang.jpg" class="chat-avatar">
+
+                </div>
+
+                <div class="chat-time">
+                    2019年12月6日
+                </div>
+
+                <div class="other-message">
+
+                    <img src="images/avatar/xutouxiang.jpg" class="other-avatar">
+
+                    <div class="other-bubble">
+                        马杰，这个世界不是你想象的这样。
+                    </div>
+
+                </div>
+
+                <div class="other-message">
+
+                    <img src="images/avatar/xutouxiang.jpg" class="other-avatar">
+
+                    <div class="other-bubble">
+                        万事万物不能只用理想化的程序办事。
+                    </div>
+
+                </div>
+
+                <div class="other-message">
+
+                    <img src="images/avatar/xutouxiang.jpg" class="other-avatar">
+
+                    <div class="other-bubble">
+                        我不想和你吵了。
+                    </div>
+
+                </div>
+
+                <div class="other-message">
+
+                    <img src="images/avatar/xutouxiang.jpg" class="other-avatar">
+
+                    <div class="other-bubble">
+                        我们什么时候见一面吧。
+                    </div>
+
+                </div>
+
+                <div class="chat-time">
+                    2019年12月7日
+                </div>
+
+                <div class="my-message">
+
+                    <div class="message-bubble">
+                        徐总，你帮我接一下溜溜吧。
+                    </div>
+
+                    <img src="images/avatar/magictouxiang.jpg" class="chat-avatar">
+
+                </div>
+
+                <div class="my-message">
+
+                    <div class="message-bubble">
+                        我现在走不开。
+                    </div>
+
+                    <img src="images/avatar/magictouxiang.jpg" class="chat-avatar">
+
+                </div>
+
+                <div class="other-message">
+
+                    <img src="images/avatar/xutouxiang.jpg" class="other-avatar">
+
+                    <div class="other-bubble">
+                        嗯。
+                    </div>
+
+                </div>
+
+                <div class="chat-time">
+                    2019年12月8日
+                </div>
+
+                <div class="my-message">
+
+                    <div class="message-bubble">
+                        徐总，溜溜…
+                    </div>
+
+                    <img src="images/avatar/magictouxiang.jpg" class="chat-avatar">
+
+                </div>
+
+                <div class="other-message">
+
+                    <img src="images/avatar/xutouxiang.jpg" class="other-avatar">
+
+                    <div class="other-bubble">
+                        嗯。
+                    </div>
+
+                </div>
+
+                <div class="other-message">
+
+                    <img src="images/avatar/xutouxiang.jpg" class="other-avatar">
+
+                    <div class="other-bubble">
+                        明天下午你上来一趟。
+                    </div>
+
+                </div>
+
+                <div class="chat-time">
+                    2020年1月2日
+                </div>
+
+                <div class="other-message failed-message">
+
+                    <img src="images/avatar/xutouxiang.jpg" class="chat-avatar">
+
+                    <div class="message-bubble">
+                        马杰你想辞职没门。
+                    </div>
+
+                    <div class="failed-icon">!</div>       
+
+                </div>
+
+                <div class="other-message failed-message">
+
+                    <img src="images/avatar/xutouxiang.jpg" class="chat-avatar">
+
+                    <div class="message-bubble">
+                        ？
+                    </div>
+
+                    <div class="failed-icon">!</div>
+   
+                </div>
+            
+            </div>
+
+        </div>
+
+
+                <div id="private-contact-page" class="hidden">
+
+                    <div class="contact-container">
+
+                        <!-- 左边 -->
+                        <div class="contact-left">
+
+                            <div class="contact-search">
+                                🔍 搜索
+                            </div>
+
+                            <div class="contact-title">
+                                通讯录管理
+                            </div>
+
+                            <div class="contact-item">
+                                👤 新的朋友
+                            </div>
+
+                            <div class="contact-item">
+                                👥 群聊
+                            </div>
+
+                            <div class="contact-item">
+                                📢 公众号
+                            </div>
+
+                            <div class="contact-item">
+                                ⭐ 服务号
+                            </div>
+
+                            <div class="contact-item">
+                                💼 企业微信联系人
+                            </div>
+
+                            <div class="contact-item">
+                                📇 联系人
+                            </div>
+
+                            <div class="contact-letter">
+                                L
+                            </div>
+
+                            <div class="contact-person">
+                                <img src="images/avatar/liuliutouxiang.jpg">
+                                溜溜宝贝
+                            </div>
+
+                            <div class="contact-letter">
+                                P
+                            </div>
+
+                            <div class="contact-person">
+                                <img src="images/avatar/pantouxiang.jpg">
+                                潘妮不叛逆
+                            </div>
+
+                            <div class="contact-letter">
+                                X
+                            </div>
+
+                            <div class="contact-person">
+                                <img src="images/avatar/xuyunfengtouxiang.jpg">
+                                徐云峰
+                            </div>
+
+
+                        </div>
+
+                        <!-- 右边 -->
+                        <div class="contact-right">
+
+                            <div class="wechat-logo">
+
+                                💬
+
+                                <div class="wechat-text">
+                                    微信
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+             </div>
+
+
+
+            
+
+
+        </div> <!-- wechat-private-window -->
+
+        <div id="private-moments-window" class="moments-window hidden">
+
+            <!-- 顶部 -->
+            <div class="moments-topbar">
+
+                <div class="moments-left">
+
+                    <span class="moments-icon">🔔</span>
+
+                    <span class="moments-icon">📷</span>
+
+                    <span class="moments-icon">↻</span>
+
+                </div>
+
+                <div class="moments-title">
+                    朋友圈
+                </div>
+
+                <div class="moments-right">
+
+                    <span class="moments-time">
+                        15:55
+                    </span>
+
+                    <button id="private-moments-close">
+                        ✕
+                    </button>
+
+                </div>
+
+
+
+            </div>
+
+            <div class="moments-body">
+
+
+
+                <!-- 马杰 -->
+                <div class="moment-item">
+
+                    <img src="images/avatar/magictouxiang.jpg" class="moment-avatar">
+
+                    <div class="moment-main">
+
+                        <div class="moment-name">
+                            马杰
+                        </div>
+
+                        <div class="moment-text">
+                            我要回去吗？
+                        </div>
+
+                        <div class="moment-meta">
+                            <span class="moment-time">一天前</span>
+
+
+
+                            <span class="moment-private">
+                                🔒 仅自己可见
+                            </span>
+
+                            <span class="moment-more">
+                                ···
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- 马杰 -->
+                <div class="moment-item">
+
+                    <img src="images/avatar/magictouxiang.jpg" class="moment-avatar">
+
+                    <div class="moment-main">
+
+                        <div class="moment-name">
+                            马杰
+                        </div>
+
+                        <div class="moment-text">
+                            分公司也不错。<br>
+                            “苟”住了不被开，不是什么难事。
+                        </div>
+
+                        <div class="moment-meta">
+                            <span class="moment-time">
+                                四个月前
+                            </span>
+                            <span class="moment-more">
+                                ···
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- 马杰 -->
+                <div class="moment-item">
+
+                    <img src="images/avatar/magictouxiang.jpg" class="moment-avatar">
+
+                    <div class="moment-main">
+
+                        <div class="moment-name">
+                            马杰
+                        </div>
+
+                        <div class="moment-text">
+                            还是到了这个时候了吗？
+                        </div>
+
+                        <div class="moment-meta">
+                            <span class="moment-time">
+                                四个月前
+                            </span>
+                            <span class="moment-more">
+                                ···
+                            </span>
+                        </div>
+
+                        <div class="moment-comment">
+
+                            <div class="comment-item">
+                                <span class="comment-name">
+                                    潘妮不叛逆：
+                                </span>
+
+                                热了？
+                            </div>
+
+                            <div class="comment-item">
+
+                                <span class="comment-name">马杰</span>
+
+                                <span class="comment-reply"> 回复 </span>
+
+                                <span class="comment-name">潘妮不叛逆</span>
+
+                                ：凉了。
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- 潘妮 -->
+                <div class="moment-item">
+
+                    <img src="images/avatar/pantouxiang.jpg" class="moment-avatar">
+
+                    <div class="moment-main">
+
+                        <div class="moment-name">
+                            潘妮不叛逆
+                        </div>
+
+                        <div class="moment-text">
+                            首场live house。<br>
+                            票卖得还不错😎
+                        </div>
+
+                        <img src="images/moments/livehouse.jpg" class="moment-image">
+
+                        <div class="moment-meta">
+                            <span class="moment-time">
+                                四个月前
+                            </span>
+
+                            <span class="moment-more">
+                                ···
+                            </span>
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+                <!-- 马杰 -->
+                <div class="moment-item">
+
+                    <img src="images/avatar/magictouxiang.jpg" class="moment-avatar">
+
+                    <div class="moment-main">
+
+                        <div class="moment-name">
+                            马杰
+                        </div>
+
+                        <div class="moment-text">
+                            我做的这一切到底对吗？
+                        </div>
+
+                        <div class="moment-meta">
+
+                            <span class="moment-time">
+                                五个月前
+                            </span>
+
+                            <span class="moment-private">
+                                🔒 仅自己可见
+                            </span>
+                            <span class="moment-more">
+                                ···
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- 潘妮 -->
+                <div class="moment-item">
+
+                    <img src="images/avatar/pantouxiang.jpg" class="moment-avatar">
+
+                    <div class="moment-main">
+
+                        <div class="moment-name">
+                            潘妮不叛逆
+                        </div>
+
+                        <div class="moment-text">
+                            和好朋友一起干一件事的感觉好像也不赖！
+                        </div>
+
+                        <img src="images/moments/jiangbian.jpg" class="moment-image">
+
+                        <div class="moment-meta">
+
+                            <span class="moment-time">
+                                五个月前
+                            </span>
+                            <span class="moment-more">
+                                ···
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+                <!-- 马杰 -->
+                <div class="moment-item">
+
+                    <img src="images/avatar/magictouxiang.jpg" class="moment-avatar">
+
+                    <div class="moment-main">
+
+                        <div class="moment-name">
+                            马杰
+                        </div>
+
+                        <div class="moment-text">
+                            生日快乐🎂
+                        </div>
+
+                        <div class="moment-meta">
+
+                            <span class="moment-time">
+                                五个月前
+                            </span>
+                            <span class="moment-more">
+                                ···
+                            </span>
+
+                        </div>
+
+                        <div class="moment-like">
+
+                            ❤️ 徐云峰
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+                <!-- 马杰 -->
+                <div class="moment-item">
+
+                    <img src="images/avatar/magictouxiang.jpg" class="moment-avatar">
+
+                    <div class="moment-main">
+
+                        <div class="moment-name">
+                            马杰
+                        </div>
+
+                        <div class="moment-text">
+                            今天吃顿好的！虽然没凭空赚钱但是吃得不错😌
+                        </div>
+
+                        <img src="images/moments/canting.jpg" class="moment-image">
+
+                        <div class="moment-meta">
+
+                            <span class="moment-time">
+                                五个月前
+                            </span>
+                            <span class="moment-more">
+                                ···
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+                <!-- 马杰 -->
+                <div class="moment-item">
+
+                    <img src="images/avatar/magictouxiang.jpg" class="moment-avatar">
+
+                    <div class="moment-main">
+
+                        <div class="moment-name">
+                            马杰
+                        </div>
+
+                        <div class="moment-text">
+                            早知道就买了！！！气死了！😡
+                        </div>
+
+                        <div class="moment-meta">
+
+                            <span class="moment-time">
+                                五个月前
+                            </span>
+                            <span class="moment-more">
+                                ···
+                            </span>
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+                <!-- 潘妮 -->
+                <div class="moment-item">
+
+                    <img src="images/avatar/pantouxiang.jpg" class="moment-avatar">
+
+                    <div class="moment-main">
+
+                        <div class="moment-name">
+                            潘妮不叛逆
+                        </div>
+
+                        <div class="moment-text">
+                            干这么多活到底有什么用？
+                        </div>
+
+                        <div class="moment-meta">
+
+                            <span class="moment-time">
+                                五个月前
+                            </span>
+
+                            <span class="moment-more">
+                                ···
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- 马杰 -->
+                <div class="moment-item">
+
+                    <img src="images/avatar/magictouxiang.jpg" class="moment-avatar">
+
+                    <div class="moment-main">
+
+                        <div class="moment-name">
+                            马杰
+                        </div>
+
+                        <div class="moment-text">
+                            溜溜宝宝生日快乐！<br>
+                            永远爱你😘
+                        </div>
+
+                        <img src="images/moments/cake.jpg" class="moment-image">
+
+                        <div class="moment-like">
+
+                            ❤️ 徐云峰
+
+                        </div>
+
+                        <div class="moment-meta">
+
+                            <span class="moment-time">
+                                五个月前
+                            </span>
+
+                            <span class="moment-more">
+                                ···
+                            </span>
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+                <!-- 马杰 -->
+                <div class="moment-item">
+
+                    <img src="images/avatar/magictouxiang.jpg" class="moment-avatar">
+
+                    <div class="moment-main">
+
+                        <div class="moment-name">
+                            马杰
+                        </div>
+
+                        <div class="moment-text">
+                            溜溜今天画的画！
+                        </div>
+
+                        <img src="images/moments/picture.jpg" class="moment-image">
+
+                        <div class="moment-meta">
+
+                            <span class="moment-time">
+                                六个月前
+                            </span>
+
+                            <span class="moment-more">
+                                ···
+                            </span>
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+                <!-- 马杰 -->
+                <div class="moment-item">
+
+                    <img src="images/avatar/magictouxiang.jpg" class="moment-avatar">
+
+                    <div class="moment-main">
+
+                        <div class="moment-name">
+                            马杰
+                        </div>
+
+                        <div class="moment-text">
+                            溜溜今天说要去游乐园玩，总算是请下来假了！
+                        </div>
+
+                        <img src="images/moments/youleyuan.jpg" class="moment-image">
+
+                        <div class="moment-meta">
+
+                            <span class="moment-time">
+                                七个月前
+                            </span>
+
+                            <span class="moment-more">
+                                ···
+                            </span>
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+
+            </div> <!-- moments-body -->
+
+        </div> <!-- private-moments-window -->
+
+        <!-- ======================================
+            Messages 窗口
+======================================= -->
+
+        <div id="messages-window" class="messages-window hidden">
+
+            <!-- 顶部 -->
+            <div class="messages-topbar">
+
+                <div class="messages-title">
+                    Messages
+                </div>
+
+                <div class="messages-right">
+
+                    <button id="messages-close">
+                        ✕
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- 主体 -->
+            <div class="messages-body">
+
+                <!-- 左侧联系人 -->
+                <div class="messages-sidebar">
+
+                    <div class="message-contact active" data-chat="chat1">
+
+                        <div class="contact-name">
+                            AAA咖啡销售冠军小卡
+                        </div>
+
+                        <div class="contact-date">
+                            2019/12/09
+                        </div>
+
+                    </div>
+
+                    <div class="message-contact" data-chat="chat2">
+
+                        <div class="contact-name">
+                            +86 12794725203
+                        </div>
+
+                        <div class="contact-date">
+                            2019/12/01
+                        </div>
+
+                    </div>
+
+                    <div class="message-contact" data-chat="chat3">
+
+                        <div class="contact-name">
+                            那就来·儿童写真中心
+                        </div>
+
+                        <div class="contact-date">
+                            2019/09/23
+                        </div>
+
+                    </div>
+
+                    <div class="message-contact" data-chat="chat4">
+
+                        <div class="contact-name">
+                            106805280009952000
+                        </div>
+
+                        <div class="contact-date">
+                            2019/08/21
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- ==============================
+                聊天区域
+        ============================== -->
+
+                <div class="messages-chat">
+
+                    <!-- 第一位联系人 -->
+                    <div class="chat-page active" id="chat1">
+
+                        <div class="chat-date">
+                            2019年12月09日
+                        </div>
+
+                        <div class="message-row receive-row">
+                            <div class="message receive">
+                                🎉咖啡零食免费吃！<br>
+                                现在回复工号即可获得小曲奇一包！<br>
+                                拒收请回复TD
+                            </div>
+                        </div>
+
+                        <div class="message-row send-row">
+                            <div class="message send">
+                                79536
+                            </div>
+                        </div>
+
+                        <div class="message-row receive-row">
+                            <div class="message receive">
+                                凭此条消息可免费领取！仅当日有效！
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- 第二位联系人 -->
+                    <div class="chat-page" id="chat2">
+
+                        <div class="chat-date">
+                            2019年12月01日
+                        </div>
+
+                        <div class="message-row receive-row">
+                            <div class="message receive">
+                                【菜鸟驿站】您有5个包裹在众和集团一楼快递站待取，可凭2-4-2426、23-6-7607、3-3-7306等领件码，尽早领件。
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- 第三位联系人 -->
+                    <div class="chat-page" id="chat3">
+
+                        <div class="chat-date">
+                            2019年9月23日
+                        </div>
+
+                        <div class="message-row receive-row">
+                            <div class="message receive">
+                                祝马溜溜宝贝生日快乐🎂！<br>
+                                今日写真拍摄可享受八折优惠！<br>
+                                心动不如行动❤️
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- 第四位联系人 -->
+                    <div class="chat-page" id="chat4">
+
+                        <div class="chat-date">
+                            2019年8月21日
+                        </div>
+
+                        <div class="message-row receive-row">
+                            <div class="message receive">
+                                【猜猜你的喜好】你是26键派？还是9键派？<br>
+                                听说把爱的人全名用九键打出可以有神秘效果😎
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div id="browser-window" class="browser-window hidden">
+
+            <div class="browser-top">
+                <button id="browser-close">×</button>
+            </div>
+
+            <div class="browser-home">
+
+                <!-- 百度Logo -->
+                <img src="images/icons/baidu.jpg" class="baidu-logo">
+
+
+                <!-- 搜索框 -->
+                <div class="search-wrapper">
+
+                    <div class="search-area">
+
+                        <input id="browser-search" type="text" placeholder="">
+
+                        <button id="browser-search-btn">
+                            白度一下
+                        </button>
+
+                    </div>
+
+                    <!-- 搜索记录 -->
+                    <div class="search-history">
+
+                        <div class="history-item">
+                            🕘 年会真的能唱rap吗
+                        </div>
+
+                        <div class="history-item">
+                            🕘 唱歌可以避免被裁员吗
+                        </div>
+
+                    </div>
+                </div> <!-- search-wrapper -->
+            </div> <!-- browser-home -->
+        </div> <!-- browser-window -->
+
+
+        <div id="meeting-window" class="meeting-window hidden">
+
+            <div class="meeting-top">
+                <button id="meeting-back">←</button>
+                <span>微博</span>
+                <button id="meeting-close">×</button>
+            </div>
+
+            <div class="meeting-body">
+
+                <div class="weibo-card">
+
+                    <!-- 用户 -->
+                    <div class="weibo-user">
+
+                        <img src="images/avatar/weibo.jpg" class="weibo-avatar">
+
+                        <div>
+
+                            <div class="weibo-name">
+                                八卦全知道
+                            </div>
+
+                            <div class="weibo-time">
+                                五个月前 · 来自 微博视频号
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- 正文 -->
+                    <div class="weibo-text">
+
+                        万万没想到人怎么能闯这么大的祸！居然直接在年会上唱rap diss领导层！<br><br>
+
+                        小编到现在还在咂摸这个众和年会，你说这个rap怎么能这么有嚼劲呢！就是不知道这台上三个人后来怎么样了，都没什么消息呢🤔<br><br>
+
+                        据说当时结束后现场安静了十几秒，有没有知道内情的人说说呀！📹
+                        <span class="video-link">
+                            八卦全知道的微博视频
+                        </span>
+
+                    </div>
+
+                    <!-- 视频 -->
+                    <video controls poster="images/avatar/fengmian.jpg" class="meeting-video">
+
+                        <source src="images/videos/shipin.mp4" type="video/mp4">
+
+                    </video>
+
+                    <!-- 底部 -->
+                    <div class="weibo-bottom">
+
+                        <span>↗ 334</span>
+
+                        <span>💬 241</span>
+
+                        <span>👍 3561</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div> <!--wb结束-->
+
+        <!-- =========================================
+                论坛窗口
+========================================= -->
+        <div id="forum-window" class="forum-window hidden">
+
+            <!-- 顶部导航 -->
+            <div class="forum-topbar">
+
+                <div class="forum-logo">
+                    摸鱼论坛
+                </div>
+
+                <div class="forum-nav">
+
+                    <span>首页</span>
+                    <span>小组</span>
+                    <span>热门</span>
+                    <span>同城</span>
+
+                </div>
+
+                <input class="forum-search" type="text" placeholder="搜索帖子">
+
+                <button id="forum-close">
+                    ×
+                </button>
+
+            </div>
+
+
+            <!-- 主体 -->
+            <div class="forum-main">
+
+                <!-- 左侧 -->
+                <div class="forum-left">
+
+                    <div class="group-card">
+
+                        <div class="group-title">
+                            众和集团
+                        </div>
+
+                        <div class="group-desc">
+                            打工人的摸鱼基地，欢迎分享职场见闻、公司八卦以及生活日常。
+                        </div>
+
+                        <div class="group-info">
+                            15424 位成员
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- 中间帖子 -->
+                <div class="forum-center">
+
+                    <!-- 帖子1 -->
+                    <div class="forum-post">
+
+                        <div class="post-title">
+                            众和集团年会到底发生了什么？
+                        </div>
+
+                        <div class="post-preview">
+                            微博那个视频是真的假的？
+                        </div>
+
+                        <div class="post-meta">
+                            匿名用户 · 352 回复
+                        </div>
+
+                    </div>
+
+
+                    <!-- 帖子2 -->
+                    <div class="forum-post">
+
+                        <div class="post-title">
+                            员工关系和企业文化部大跳槽事件
+                        </div>
+
+                        <div class="post-preview">
+                            居然真的都跑了？？
+                        </div>
+
+                        <div class="post-meta">
+                            互联网判官 · 148 回复
+                        </div>
+
+                    </div>
+
+
+                    <!-- 帖子3 -->
+                    <div class="forum-post" data-target="post2-window">
+
+
+                        <div class="post-title">
+                            马杰Magic是谁？？
+                        </div>
+
+                        <div class="post-preview">
+                            如题。本人初来乍到...
+                        </div>
+
+                        <div class="post-meta">
+                            derder · 43 回复
+                        </div>
+
+                    </div>
+
+
+                    <!-- 帖子4 -->
+                    <div class="forum-post">
+
+                        <div class="post-title">
+                            众和分公司待遇怎么样？
+                        </div>
+
+                        <div class="post-preview">
+                            有没有人在那边工作？
+                        </div>
+
+                        <div class="post-meta">
+                            社畜观察员 · 28 回复
+                        </div>
+
+                    </div>
+
+
+                    <!-- 帖子5 -->
+                    <div class="forum-post">
+
+                        <div class="post-title">
+                            有没有人在众和集团上班？
+                        </div>
+
+                        <div class="post-preview">
+                            想问一下加班多吗？
+                        </div>
+
+                        <div class="post-meta">
+                            Offer收割机 · 61 回复
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- 右侧 -->
+                <div class="forum-right">
+
+                    <div class="hot-card">
+
+                        <div class="hot-title">
+                            今日热门
+                        </div>
+
+                        <ol>
+
+                            <li>众和集团年会事件</li>
+
+                            <li>互联网裁员潮</li>
+
+                            <li>今年秋招情况</li>
+
+                            <li>程序员摸鱼指南</li>
+
+                            <li>如何拒绝无效加班</li>
+
+                        </ol>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div id="post2-window" class="post-window hidden">
+
+            <div class="post-top">
+
+                <button id="post2-back">←</button>
+
+                <div class="post-title">
+                    如题，马杰magic是谁？
+                </div>
+
+                <button id="post2-close">×</button>
+
+            </div>
+
+            <div class="post-body">
+
+                <!-- 楼主 -->
+                <div class="floor first-floor">
+
+                    <div class="floor-user">
+
+                        <img src="images/avatar/derdertouxiang.jpg" class="floor-avatar">
+
+                        <div>
+
+                            <div class="floor-name">
+                                derder（楼主）
+                            </div>
+
+                            <div class="floor-time">
+                                2019-11-30 19:34
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="floor-content">
+
+                        本人初来乍到，对于公司内部事情一无所知。<br>
+                        很好奇这个马杰magic到底是什么来头，居然胆子这么大……
+
+                    </div>
+
+                </div>
+
+                <!-- 回复 -->
+
+                <div class="reply">
+                    <div class="reply-name">哩哩哩啦啦</div>
+                    <div class="reply-content">
+                        他胆子一直很大，不该打听的喜欢瞎打听。
+                    </div>
+                </div>
+
+                <div class="reply">
+                    <div class="reply-name">我回家烤地瓜了</div>
+                    <div class="reply-content">
+                        听说当时员企部全跳槽跑路了，就他没跑。<br>
+                        有毅力。
+                    </div>
+                </div>
+
+                <div class="reply">
+                    <div class="reply-name">momo（打工版）</div>
+                    <div class="reply-content">
+                        那是他有毅力吗？那是他没有被邀请……
+                    </div>
+                </div>
+
+                <div class="reply">
+                    <div class="reply-name">mingming</div>
+                    <div class="reply-content">
+                        对啊，当时Vivina带走了所有人。除了马杰。
+                    </div>
+                </div>
+
+                <div class="reply">
+                    <div class="reply-name">奇迹会发生吗</div>
+                    <div class="reply-content">
+                        ？？？为啥？他啥时候惹到Vivina了？
+                    </div>
+                </div>
+
+                <div class="reply">
+                    <div class="reply-name">momo（打工版）</div>
+                    <div class="reply-content">
+                        不清楚，但我看马杰不像会和别人起冲突的人。
+                    </div>
+                </div>
+
+                <div class="reply">
+                    <div class="reply-name">derder（楼主）</div>
+                    <div class="reply-content">
+                        ？他不敢和别人起冲突但是敢上台唱rap？
+                    </div>
+                </div>
+
+                <div class="reply">
+                    <div class="reply-name">三号小猪</div>
+                    <div class="reply-content">
+                        不知道啊🤷
+                    </div>
+                </div>
+
+                <div class="reply">
+                    <div class="reply-name">一个名字</div>
+                    <div class="reply-content">
+                        我和马杰是同期进来的，他确实一直都是个不太惹眼的人。<br>
+
+                        我干了两年，从K4做到K7，他还在K5打转。<br>
+
+                        但是他中间突然消失了一段时间，回来之后直接从K5到了K8。<br>
+
+                        不知道为什么……
+                    </div>
+                </div>
+
+                <div class="reply">
+                    <div class="reply-name">cucu的郫县号</div>
+                    <div class="reply-content">
+                        ？他去干嘛了？
+                    </div>
+                </div>
+
+                <div class="reply">
+                    <div class="reply-name">一个名字</div>
+                    <div class="reply-content">
+                        不清楚，消失了大概小半年？我一直以为他出去学习了。
+                    </div>
+                </div>
+
+                <div class="reply">
+                    <div class="reply-name">请拨打喵喵零</div>
+                    <div class="reply-content">
+                        这个我好像有印象，大概四年前？2015年吧好像。<br>
+                        五月份就消失了一直到十一月才回来。
+                    </div>
+                </div>
+
+                <div class="reply">
+                    <div class="reply-name">wilderless</div>
+                    <div class="reply-content">
+                        消失了半年啊😧
+                    </div>
+                </div>
+
+                <div class="reply">
+                    <div class="reply-name">飞天栗子</div>
+                    <div class="reply-content">
+                        消失了这么久回来居然就晋升？背后是不是有人啊？
+                    </div>
+                </div>
+
+                <div class="reply">
+                    <div class="reply-name">owow</div>
+                    <div class="reply-content">
+                        听说马杰和领导层有关系。
+                    </div>
+                </div>
+
+                <div class="reply">
+                    <div class="reply-name">真实世界</div>
+                    <div class="reply-content">
+                        Mark？Peter？Thomas？还有谁？
+                    </div>
+                </div>
+
+                <div class="reply">
+                    <div class="reply-name">owow</div>
+                    <div class="reply-content">
+                        听说是Jeffery哦。
+                    </div>
+                </div>
+
+                <div class="reply">
+                    <div class="reply-name">一只狗捏</div>
+                    <div class="reply-content">
+                        等等……谁？？Jeffery不是结婚了吗？
+                    </div>
+                </div>
+
+                <div class="reply">
+                    <div class="reply-name">kkk不喜欢你</div>
+                    <div class="reply-content">
+                        我好像知道了。徐云峰是在16年空降的……<br>
+                        徐云峰空降之后马杰就飞升了，这说明了什么！
+                    </div>
+                </div>
+
+                <div class="reply">
+                    <div class="reply-name">全败战神</div>
+                    <div class="reply-content">
+                        我知道了！<br>
+                        是因为马杰给徐云峰送钱了！
+                    </div>
+                </div>
+
+                <div class="reply">
+                    <div class="reply-name">你在说什么鬼话</div>
+                    <div class="reply-content">
+                        ？？？
+                    </div>
+                </div>
+
+                <div class="reply">
+                    <div class="reply-name">冰块苹果汁</div>
+                    <div class="reply-content">
+                        徐云峰在16年之前好像就被猎头挖过来了吧？
+                    </div>
+                </div>
+
+                <div class="reply">
+                    <div class="reply-name">mono</div>
+                    <div class="reply-content">
+                        楼上说得对。<br>
+                        15年初就来了，然后被董事长派去国外拉赞助了。<br>
+                        我前同事和他对接过。
+                    </div>
+                </div>
+
+                <div class="reply">
+                    <div class="reply-name">curve</div>
+                    <div class="reply-content">
+                        不觉得其中有蹊跷吗？？
+                    </div>
+                </div>
+
+                <div class="reply">
+                    <div class="reply-name">茶包</div>
+                    <div class="reply-content">
+                        总感觉马杰和这个徐云峰有一丝莫名其妙的关系。。。
+                    </div>
+                </div>
+
+                <div class="reply">
+                    <div class="reply-name">owow</div>
+                    <div class="reply-content">
+                        Bingo！
+                    </div>
+                </div>
+
+                <div class="reply">
+
+                    <div class="reply-name">owow</div>
+
+                    <img src="images/post/owow.jpg" class="reply-image">
+
+                </div>
+
+                <div class="reply">
+
+                    <div class="reply-name">一只狗捏</div>
+
+                    <div class="reply-content">
+                        啊？为了正义把丈夫关进监狱。<br>
+                        马杰克我钦佩你。
+                    </div>
+
+                </div>
+
+                <div class="reply">
+
+                    <div class="reply-name">你在说什么鬼话</div>
+
+                    <div class="reply-content">
+                        我勒个豆啊！
+                    </div>
+
+                </div>
+
+                <div class="reply">
+
+                    <div class="reply-name">
+                        derder（楼主）
+                    </div>
+
+                    <div class="reply-content">
+                        ……我们还能活到明天吗？<br>
+                        我先把帖子锁了！
+                    </div>
+
+                </div>
+
+                <div class="locked">
+
+                    🔒 此帖已锁
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <script src="js/desktop.js"></script>
+
+</body>
+
+</html>

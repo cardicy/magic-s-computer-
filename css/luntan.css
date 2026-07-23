@@ -1,0 +1,344 @@
+/*==================================
+            Forum窗口
+==================================*/
+
+.forum-window{
+
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    width:1050px;
+    height:680px;
+
+    background:#f7f7f7;
+
+    border-radius:12px;
+
+    overflow:hidden;
+
+    box-shadow:0 20px 50px rgba(0,0,0,.25);
+
+    display:flex;
+
+    flex-direction:column;
+
+    z-index:9999;
+
+}
+
+.forum-window.hidden{
+
+    display:none;
+
+}
+
+/*==================================
+            顶部
+==================================*/
+
+.forum-topbar{
+
+    height:56px;
+
+    background:#edf4ed;
+
+    border-bottom:1px solid #d8e7d8;
+
+    display:flex;
+
+    align-items:center;
+
+    padding:0 24px;
+
+}
+
+.forum-logo{
+
+    font-size:28px;
+
+    font-weight:bold;
+
+    color:#2f9632;
+
+    margin-right:40px;
+
+}
+
+.forum-nav{
+
+    display:flex;
+
+    gap:26px;
+
+    color:#555;
+
+    font-size:15px;
+
+}
+
+.forum-nav span{
+
+    cursor:pointer;
+
+}
+
+.forum-nav span:hover{
+
+    color:#2f9632;
+
+}
+
+.forum-search{
+
+    margin-left:auto;
+
+    width:240px;
+
+    height:34px;
+
+    border:1px solid #ccc;
+
+    border-radius:4px;
+
+    padding:0 12px;
+
+    outline:none;
+
+}
+
+/*==================================
+            主体
+==================================*/
+
+.forum-main{
+
+    flex:1;
+
+    display:flex;
+
+    overflow:hidden;
+
+}
+
+/*==================================
+            左侧
+==================================*/
+
+.forum-left{
+
+    width:220px;
+
+    padding:24px;
+
+}
+
+.group-card{
+
+    background:white;
+
+    border-radius:8px;
+
+    padding:18px;
+
+    box-shadow:0 1px 3px rgba(0,0,0,.08);
+
+}
+
+.group-title{
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    color:#333;
+
+}
+
+.group-desc{
+
+    margin-top:12px;
+
+    color:#666;
+
+    line-height:1.7;
+
+    font-size:14px;
+
+}
+
+.group-info{
+
+    margin-top:18px;
+
+    color:#999;
+
+    font-size:13px;
+
+}
+
+/*==================================
+            中间帖子
+==================================*/
+
+.forum-center{
+
+    flex:1;
+
+    padding:20px;
+
+    overflow-y:auto;
+
+}
+
+.forum-post{
+
+    background:white;
+
+    border-radius:8px;
+
+    padding:18px 22px;
+
+    margin-bottom:16px;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+    box-shadow:0 1px 3px rgba(0,0,0,.06);
+
+    border-left:4px solid #8ccf8c;
+
+}
+
+.forum-post:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 6px 18px rgba(0,0,0,.12);
+
+}
+
+.post-title{
+
+    font-size:20px;
+
+    color:#3377aa;
+
+    margin-bottom:10px;
+
+    font-weight:600;
+
+}
+
+.post-preview{
+
+    color:#555;
+
+    line-height:1.7;
+
+    margin-bottom:12px;
+
+}
+
+.post-meta{
+
+    color:#999;
+
+    font-size:13px;
+
+}
+
+/*==================================
+            右侧
+==================================*/
+
+.forum-right{
+
+    width:220px;
+
+    padding:24px;
+
+}
+
+.hot-card{
+
+    background:white;
+
+    border-radius:8px;
+
+    padding:18px;
+
+    box-shadow:0 1px 3px rgba(0,0,0,.08);
+
+}
+
+.hot-title{
+
+    font-size:18px;
+
+    color:#2f9632;
+
+    margin-bottom:14px;
+
+    font-weight:bold;
+
+}
+
+.hot-card ol{
+
+    padding-left:20px;
+
+}
+
+.hot-card li{
+
+    margin-bottom:12px;
+
+    color:#555;
+
+    line-height:1.6;
+
+}
+
+/*==================================
+            滚动条
+==================================*/
+
+.forum-center::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+.forum-center::-webkit-scrollbar-thumb{
+
+    background:#cfcfcf;
+
+    border-radius:20px;
+
+}
+#forum-close{
+
+    margin-left:18px;
+
+    border:none;
+
+    background:none;
+
+    font-size:24px;
+
+    cursor:pointer;
+
+    color:#666;
+
+}
+
+#forum-close:hover{
+
+    color:red;
+
+}
