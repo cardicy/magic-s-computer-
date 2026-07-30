@@ -95,7 +95,7 @@ loginBtn.onclick = function(){
     if(
         phone.value=="79536"
         &&
-        password.value=="19880709"
+        password.value=="19880725"
     ){
 
         loginError.innerHTML="";
@@ -113,7 +113,7 @@ loginBtn.onclick = function(){
     if(
         phone.value=="62548548"
         &&
-        password.value=="20150923"
+        password.value=="20150523"
     ){
 
         loginError.innerHTML="";
@@ -378,8 +378,18 @@ document.getElementById("private-contact-liuliu");
 const privateContactPanni =
 document.getElementById("private-contact-panni");
 
+const privateContactX =
+document.getElementById("private-contact-x");
+
+const privateContactZhichang =
+document.getElementById("private-contact-zhichang");
+
 const privateContactXuyunfeng =
 document.getElementById("private-contact-xuyunfeng");
+
+
+
+
 
 const privateChatLiuliu =
 document.getElementById("private-chat-liuliu");
@@ -387,20 +397,58 @@ document.getElementById("private-chat-liuliu");
 const privateChatPanni =
 document.getElementById("private-chat-panni");
 
+const privateChatX =
+document.getElementById("private-chat-x");
+
+const privateChatZhichang =
+document.getElementById("private-chat-zhichang");
+
 const privateChatXuyunfeng =
 document.getElementById("private-chat-xuyunfeng");
 
 
+
 // 默认显示溜溜
 
-privateChatLiuliu.classList.add("active");
-privateContactLiuliu.classList.add("active");
+if(privateChatLiuliu){
+    privateChatLiuliu.classList.add("active");
+}
 
-privateChatPanni.classList.remove("active");
-privateContactPanni.classList.remove("active");
+if(privateContactLiuliu){
+    privateContactLiuliu.classList.add("active");
+}
 
-privateChatXuyunfeng.classList.remove("active");
-privateContactXuyunfeng.classList.remove("active");
+
+[
+    privateChatPanni,
+    privateChatX,
+    privateChatZhichang,
+    privateChatXuyunfeng
+
+].forEach(chat=>{
+
+    if(chat){
+        chat.classList.remove("active");
+    }
+
+});
+
+
+[
+    privateContactPanni,
+    privateContactX,
+    privateContactZhichang,
+    privateContactXuyunfeng
+
+].forEach(contact=>{
+
+    if(contact){
+        contact.classList.remove("active");
+    }
+
+});
+
+
 
 //=========================
 // 隐藏所有私人聊天
@@ -408,11 +456,21 @@ privateContactXuyunfeng.classList.remove("active");
 
 function hidePrivateChats(){
 
-    privateChatLiuliu.classList.remove("active");
+    [
+        privateChatLiuliu,
+        privateChatPanni,
+        privateChatX,
+        privateChatZhichang,
+        privateChatXuyunfeng
+        
+        
+    ].forEach(chat=>{
 
-    privateChatPanni.classList.remove("active");
+        if(chat){
+            chat.classList.remove("active");
+        }
 
-    privateChatXuyunfeng.classList.remove("active");
+    });
 
 }
 //=========================
@@ -421,11 +479,20 @@ function hidePrivateChats(){
 
 function hidePrivateContacts(){
 
-    privateContactLiuliu.classList.remove("active");
+    [
+        privateContactLiuliu,
+        privateContactPanni,
+        privateContactX,
+        privateContactZhichang,
+        privateContactXuyunfeng
+        
+    ].forEach(contact=>{
 
-    privateContactPanni.classList.remove("active");
+        if(contact){
+            contact.classList.remove("active");
+        }
 
-    privateContactXuyunfeng.classList.remove("active");
+    });
 
 }
 
@@ -463,6 +530,40 @@ privateContactPanni.onclick=function(){
 };
 
 //=========================
+// 点击x
+//=========================
+
+privateContactX.onclick=function(){
+
+    hidePrivateChats();
+
+    hidePrivateContacts();
+
+    privateChatX.classList.add("active");
+
+    privateContactX.classList.add("active");
+
+};
+
+
+//=========================
+// 点击职场
+//=========================
+
+privateContactZhichang.onclick=function(){
+
+    hidePrivateChats();
+
+    hidePrivateContacts();
+
+    privateChatZhichang.classList.add("active");
+
+    privateContactZhichang.classList.add("active");
+
+};
+
+
+//=========================
 // 点击徐云峰
 //=========================
 
@@ -477,6 +578,8 @@ privateContactXuyunfeng.onclick=function(){
     privateContactXuyunfeng.classList.add("active");
 
 };
+
+
 
 //=========================
 // 私人微信通讯录
